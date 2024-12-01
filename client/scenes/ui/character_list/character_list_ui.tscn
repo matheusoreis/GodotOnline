@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg10364e05v16"]
+
+[ext_resource type="Script" path="res://scenes/ui/character_list/character_list_ui.gd" id="1_yqe7k"]
+[ext_resource type="Script" path="res://scenes/ui/top_bar.gd" id="2_7hg5i"]
+
+[node name="character_list_ui" type="PanelContainer" node_paths=PackedStringArray("slots_hbox")]
+custom_minimum_size = Vector2(200, 170)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqe7k")
+slots_hbox = NodePath("design_vbox/content_margin/content_vbox")
+
+[node name="design_vbox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="top_bar" type="Panel" parent="design_vbox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+script = ExtResource("2_7hg5i")
+target_node = NodePath("../..")
+
+[node name="content_margin" type="MarginContainer" parent="design_vbox/top_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="content_hbox" type="HBoxContainer" parent="design_vbox/top_bar/content_margin"]
+layout_mode = 2
+
+[node name="title_label" type="Label" parent="design_vbox/top_bar/content_margin/content_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Personagens"
+
+[node name="close_button" type="Button" parent="design_vbox/top_bar/content_margin/content_hbox"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "X"
+
+[node name="content_margin" type="MarginContainer" parent="design_vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="content_vbox" type="HBoxContainer" parent="design_vbox/content_margin"]
+layout_mode = 2
+
+[connection signal="pressed" from="design_vbox/top_bar/content_margin/content_hbox/close_button" to="." method="_on_close_button_pressed"]

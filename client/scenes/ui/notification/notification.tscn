@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://beblvtjmkw10"]
+
+[ext_resource type="Script" path="res://scenes/ui/notification/notification.gd" id="1_e801n"]
+
+[node name="notification_ui" type="PanelContainer" node_paths=PackedStringArray("timer", "label")]
+offset_right = 45.0
+offset_bottom = 41.0
+size_flags_horizontal = 0
+script = ExtResource("1_e801n")
+timer = NodePath("timer")
+label = NodePath("margin_container/hbox_container/label")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="margin_container" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="hbox_container" type="HBoxContainer" parent="margin_container"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="button" type="Button" parent="margin_container/hbox_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "X"
+
+[node name="label" type="Label" parent="margin_container/hbox_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="margin_container/hbox_container/button" to="." method="_on_button_pressed"]

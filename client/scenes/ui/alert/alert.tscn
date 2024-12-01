@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dioyfn7dap5o0"]
+
+[ext_resource type="Script" path="res://scenes/ui/alert/alert.gd" id="1_4bgkg"]
+
+[node name="alert_ui" type="PanelContainer" node_paths=PackedStringArray("label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4bgkg")
+label = NodePath("center_content/vbox_content/message")
+
+[node name="center_content" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="vbox_content" type="VBoxContainer" parent="center_content"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="message" type="Label" parent="center_content/vbox_content"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="margin_content" type="MarginContainer" parent="center_content/vbox_content"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="close_button" type="Button" parent="center_content/vbox_content/margin_content"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "ok"
+
+[connection signal="pressed" from="center_content/vbox_content/margin_content/close_button" to="." method="_on_close_button_pressed"]

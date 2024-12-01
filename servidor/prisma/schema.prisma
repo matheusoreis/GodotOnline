@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Accounts {
+  id         Int          @id @default(autoincrement())
+  email      String       @unique
+  password   String
+  premium    DateTime?
+  enable     Boolean      @default(true)
+  characters Characters[]
+  slots      Int          @default(3)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+}
+
+model Characters {
+  id         Int       @id @default(autoincrement())
+  name       String    @unique
+  gender     Genders   @relation(fields: [gendersId], references: [id])
+  world      Worlds    @relation(fields: [worldsId], references: [id])
+  direction  Int       @default(1)
+  positionX  Int       @default(32)
+  positionY  Int       @default(32)
+  sprite     String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  gendersId  Int
+  worldsId   Int
+  Accounts   Accounts? @relation(fields: [accountsId], references: [id])
+  accountsId Int?
+}
+
+model Genders {
+  id         Int          @id @default(autoincrement())
+  name       String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  Characters Characters[]
+}
+
+model Worlds {
+  id         Int          @id @default(autoincrement())
+  name       String
+  sizeX      Int          @default(1920)
+  sizeY      Int          @default(1080)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  Characters Characters[]
+}

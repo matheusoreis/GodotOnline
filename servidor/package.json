@@ -1,0 +1,29 @@
+{
+	"name": "vatarserver",
+	"module": "index.ts",
+	"type": "module",
+	"dependencies": {
+		"@prisma/client": "^5.22.0",
+		"jsonwebtoken": "^9.0.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.3",
+		"@types/bun": "latest",
+		"@types/jsonwebtoken": "^9.0.7",
+		"prisma": "^5.22.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"scripts": {
+		"format": "bunx biome format --write .",
+		"lint": "bunx biome lint --write .",
+		"check": "bunx biome check --write .",
+		"start": "bun index.ts",
+		"dev": "bun --watch index.ts",
+		"build": "bun build index.ts --outdir ./build",
+		"release": "bun build/index.js",
+		"prisma": "bunx prisma generate",
+		"studio": "bunx prisma studio"
+	}
+}

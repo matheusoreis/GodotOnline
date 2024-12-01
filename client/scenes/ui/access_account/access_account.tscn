@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd4jren4skvax"]
+
+[ext_resource type="Script" path="res://scenes/ui/top_bar.gd" id="1_jwiky"]
+[ext_resource type="Script" path="res://scenes/ui/access_account/access_account.gd" id="1_x0qr4"]
+
+[node name="access_account_ui" type="PanelContainer" node_paths=PackedStringArray("email_line", "password_line", "access_button", "create_button")]
+custom_minimum_size = Vector2(250, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x0qr4")
+email_line = NodePath("design_vbox/content_margin/content_vbox/email_line")
+password_line = NodePath("design_vbox/content_margin/content_vbox/password_line")
+access_button = NodePath("design_vbox/content_margin/content_vbox/access_button")
+create_button = NodePath("design_vbox/content_margin/content_vbox/create_button")
+
+[node name="design_vbox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="top_bar" type="Panel" parent="design_vbox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+script = ExtResource("1_jwiky")
+target_node = NodePath("../..")
+
+[node name="content_margin" type="MarginContainer" parent="design_vbox/top_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="content_hbox" type="HBoxContainer" parent="design_vbox/top_bar/content_margin"]
+layout_mode = 2
+
+[node name="title_label" type="Label" parent="design_vbox/top_bar/content_margin/content_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Acessar"
+
+[node name="close_button" type="Button" parent="design_vbox/top_bar/content_margin/content_hbox"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "X"
+
+[node name="content_margin" type="MarginContainer" parent="design_vbox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="content_vbox" type="VBoxContainer" parent="design_vbox/content_margin"]
+layout_mode = 2
+
+[node name="email_line" type="LineEdit" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+text = "reisdev.matheus@gmail.com"
+
+[node name="password_line" type="LineEdit" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+secret = true
+
+[node name="access_button" type="Button" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+disabled = true
+text = "Acessar"
+
+[node name="create_button" type="Button" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+text = "Cadastrar"
+
+[connection signal="pressed" from="design_vbox/top_bar/content_margin/content_hbox/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="text_changed" from="design_vbox/content_margin/content_vbox/email_line" to="." method="_on_email_line_text_changed"]
+[connection signal="text_changed" from="design_vbox/content_margin/content_vbox/password_line" to="." method="_on_password_line_text_changed"]
+[connection signal="pressed" from="design_vbox/content_margin/content_vbox/access_button" to="." method="_on_access_button_pressed"]
+[connection signal="pressed" from="design_vbox/content_margin/content_vbox/create_button" to="." method="_on_create_button_pressed"]

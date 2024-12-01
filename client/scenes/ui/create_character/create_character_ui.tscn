@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb2fjmbvllsok"]
+
+[ext_resource type="Script" path="res://scenes/ui/create_character/create_character_ui.gd" id="1_p1f47"]
+[ext_resource type="Script" path="res://scenes/ui/top_bar.gd" id="2_x7loo"]
+[ext_resource type="Texture2D" uid="uid://bbw6qs1pda1sd" path="res://assets/graphics/entities/characters/2.png" id="3_g4q6p"]
+[ext_resource type="Texture2D" uid="uid://cnsosgognq3hm" path="res://assets/graphics/entities/characters/1.png" id="3_xwfes"]
+[ext_resource type="Texture2D" uid="uid://cftk22l4gc4bq" path="res://assets/graphics/entities/characters/3.png" id="4_0w4ji"]
+[ext_resource type="Texture2D" uid="uid://bwpo8l0jx1y5e" path="res://assets/graphics/entities/characters/4.png" id="5_pv8f6"]
+[ext_resource type="Texture2D" uid="uid://d3cqnf7v7425b" path="res://assets/graphics/entities/characters/5.png" id="6_ho522"]
+[ext_resource type="Texture2D" uid="uid://c12qf35lac7wf" path="res://assets/graphics/entities/characters/6.png" id="7_vscip"]
+[ext_resource type="Texture2D" uid="uid://br0pqkp5dc3n5" path="res://assets/graphics/entities/characters/7.png" id="8_gvl5g"]
+[ext_resource type="Texture2D" uid="uid://bbo4n074fyb43" path="res://assets/graphics/entities/characters/8.png" id="9_xxix1"]
+
+[node name="create_character_ui" type="PanelContainer" node_paths=PackedStringArray("name_line", "create_button", "genders_button", "sprite_preview")]
+custom_minimum_size = Vector2(250, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -164.0
+offset_right = 125.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p1f47")
+name_line = NodePath("design_vbox/content_margin/content_vbox/name_line")
+create_button = NodePath("design_vbox/content_margin/content_vbox/create_button")
+genders_button = NodePath("design_vbox/content_margin/content_vbox/genders_button")
+sprite_preview = NodePath("design_vbox/content_margin/content_vbox/sprite_hbox/sprite_panel/sprite_preview")
+avaliable_sprites = Array[CompressedTexture2D]([ExtResource("3_xwfes"), ExtResource("3_g4q6p"), ExtResource("4_0w4ji"), ExtResource("5_pv8f6"), ExtResource("6_ho522"), ExtResource("7_vscip"), ExtResource("8_gvl5g"), ExtResource("9_xxix1")])
+
+[node name="design_vbox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="top_bar" type="Panel" parent="design_vbox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+script = ExtResource("2_x7loo")
+target_node = NodePath("../..")
+
+[node name="content_margin" type="MarginContainer" parent="design_vbox/top_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="content_hbox" type="HBoxContainer" parent="design_vbox/top_bar/content_margin"]
+layout_mode = 2
+
+[node name="title_label" type="Label" parent="design_vbox/top_bar/content_margin/content_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Novo Personagem"
+
+[node name="close_button" type="Button" parent="design_vbox/top_bar/content_margin/content_hbox"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "X"
+
+[node name="content_margin" type="MarginContainer" parent="design_vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="content_vbox" type="VBoxContainer" parent="design_vbox/content_margin"]
+layout_mode = 2
+
+[node name="name_label" type="Label" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+text = "Nome do Personagem"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name_line" type="LineEdit" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+
+[node name="genders_button" type="OptionButton" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Feminino"
+popup/item_0/id = 1
+popup/item_1/text = "Masculino"
+popup/item_1/id = 2
+popup/item_2/text = "Outro"
+popup/item_2/id = 3
+
+[node name="sprite_hbox" type="HBoxContainer" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+
+[node name="previous_sprite" type="Button" parent="design_vbox/content_margin/content_vbox/sprite_hbox"]
+layout_mode = 2
+text = "<"
+
+[node name="sprite_panel" type="Panel" parent="design_vbox/content_margin/content_vbox/sprite_hbox"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="sprite_preview" type="Sprite2D" parent="design_vbox/content_margin/content_vbox/sprite_hbox/sprite_panel"]
+position = Vector2(87, 59.5)
+scale = Vector2(2, 2)
+texture = ExtResource("3_xwfes")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="next_sprite" type="Button" parent="design_vbox/content_margin/content_vbox/sprite_hbox"]
+layout_mode = 2
+text = ">"
+
+[node name="create_button" type="Button" parent="design_vbox/content_margin/content_vbox"]
+layout_mode = 2
+text = "Criar"
+
+[connection signal="pressed" from="design_vbox/top_bar/content_margin/content_hbox/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="design_vbox/content_margin/content_vbox/sprite_hbox/previous_sprite" to="." method="_on_previous_sprite_pressed"]
+[connection signal="pressed" from="design_vbox/content_margin/content_vbox/sprite_hbox/next_sprite" to="." method="_on_next_sprite_pressed"]
+[connection signal="pressed" from="design_vbox/content_margin/content_vbox/create_button" to="." method="_on_create_button_pressed"]

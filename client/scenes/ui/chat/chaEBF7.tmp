@@ -1,0 +1,128 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd2jcbu0ccd8s"]
+
+[ext_resource type="Script" path="res://scenes/ui/chat/chat_ui.gd" id="1_hqyrk"]
+
+[node name="ChatUI" type="PanelContainer" node_paths=PackedStringArray("chat_history", "chat_options", "chat_message", "send_message", "emotes_panel")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -201.0
+offset_right = 494.0
+offset_bottom = -5.0
+grow_vertical = 0
+script = ExtResource("1_hqyrk")
+chat_history = NodePath("ContentMargin/ContentVbox/ChatHistory")
+chat_options = NodePath("ContentMargin/ContentVbox/ContentHbox/ChatOptions")
+chat_message = NodePath("ContentMargin/ContentVbox/ContentHbox/ChatMessages")
+send_message = NodePath("ContentMargin/ContentVbox/ContentHbox/SendMessage")
+emotes_panel = NodePath("EmotesPanel")
+
+[node name="ContentMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ContentVbox" type="VBoxContainer" parent="ContentMargin"]
+layout_mode = 2
+
+[node name="ChatHistory" type="RichTextLabel" parent="ContentMargin/ContentVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_following = true
+
+[node name="ContentHbox" type="HBoxContainer" parent="ContentMargin/ContentVbox"]
+layout_mode = 2
+
+[node name="EmotesButton" type="Button" parent="ContentMargin/ContentVbox/ContentHbox"]
+layout_mode = 2
+text = "Emotes"
+
+[node name="ChatOptions" type="OptionButton" parent="ContentMargin/ContentVbox/ContentHbox"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Mapa"
+popup/item_1/text = "Global"
+popup/item_1/id = 1
+
+[node name="ChatMessages" type="LineEdit" parent="ContentMargin/ContentVbox/ContentHbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SendMessage" type="Button" parent="ContentMargin/ContentVbox/ContentHbox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Enviar"
+
+[node name="EmotesPanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContent" type="MarginContainer" parent="EmotesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="EmotesPanel/MarginContent"]
+layout_mode = 2
+columns = 7
+
+[node name="Angry" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Angry"
+
+[node name="Attention" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Attention"
+
+[node name="Confused" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Confused"
+
+[node name="Idea" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Idea"
+
+[node name="Love" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Love"
+
+[node name="Music" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="Question" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Question"
+
+[node name="Shame" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Shame"
+
+[node name="Sleeping" type="Button" parent="EmotesPanel/MarginContent/GridContainer"]
+layout_mode = 2
+text = "Sleeping"
+
+[connection signal="pressed" from="ContentMargin/ContentVbox/ContentHbox/EmotesButton" to="." method="_on_emotes_button_pressed"]
+[connection signal="pressed" from="ContentMargin/ContentVbox/ContentHbox/SendMessage" to="." method="_on_send_message_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Angry" to="." method="_on_angry_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Attention" to="." method="_on_attention_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Confused" to="." method="_on_confused_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Idea" to="." method="_on_idea_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Love" to="." method="_on_love_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Question" to="." method="_on_question_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Shame" to="." method="_on_shame_pressed"]
+[connection signal="pressed" from="EmotesPanel/MarginContent/GridContainer/Sleeping" to="." method="_on_sleeping_pressed"]

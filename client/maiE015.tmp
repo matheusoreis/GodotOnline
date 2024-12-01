@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvglmd2im4seo"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_0loro"]
+
+[node name="main" type="Control" node_paths=PackedStringArray("fps_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0loro")
+fps_label = NodePath("fps_label")
+
+[node name="fps_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 74.0
+offset_bottom = 43.0
+text = "Fps: 64"
+
+[node name="ping_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 43.0
+offset_right = 74.0
+offset_bottom = 66.0
+text = "Ping: 0"
+
+[node name="notification_location" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="content_vbox" type="VBoxContainer" parent="notification_location"]
+layout_direction = 3
+layout_mode = 2
+
+[node name="menu_ui" type="CanvasLayer" parent="."]
+
+[node name="game_ui" type="CanvasLayer" parent="."]
