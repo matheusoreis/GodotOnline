@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvglmd2im4seo"]
+[gd_scene load_steps=9 format=3 uid="uid://bvglmd2im4seo"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_0loro"]
 [ext_resource type="PackedScene" uid="uid://cd4jren4skvax" path="res://scenes/ui/access_account/access_account.tscn" id="2_rxdef"]
 [ext_resource type="PackedScene" uid="uid://dapvlaujlukjy" path="res://scenes/ui/create_account/create_account_ui.tscn" id="3_tv0uj"]
 [ext_resource type="PackedScene" uid="uid://cg10364e05v16" path="res://scenes/ui/character_list/character_list_ui.tscn" id="4_iyo2s"]
 [ext_resource type="PackedScene" uid="uid://cb2fjmbvllsok" path="res://scenes/ui/create_character/create_character_ui.tscn" id="5_6vaw2"]
+[ext_resource type="PackedScene" uid="uid://dall4ddtaw5fu" path="res://scenes/ui/character_data/character_data.tscn" id="6_tbt07"]
 [ext_resource type="PackedScene" uid="uid://cd2jcbu0ccd8s" path="res://scenes/ui/chat/chat_ui.tscn" id="6_vvsma"]
+[ext_resource type="PackedScene" uid="uid://llvnrc5065et" path="res://scenes/ui/navigation_bar/navigation_bar.tscn" id="8_p75ms"]
 
 [node name="main" type="Control" node_paths=PackedStringArray("fps_label")]
 layout_mode = 3
@@ -40,6 +42,12 @@ character_list_ui = NodePath("../character_list_ui")
 visible = false
 
 [node name="chat_ui" parent="game_ui" instance=ExtResource("6_vvsma")]
+
+[node name="character_data_ui" parent="game_ui" instance=ExtResource("6_tbt07")]
+visible = false
+
+[node name="navigation_bar_ui" parent="game_ui" node_paths=PackedStringArray("character_info_ui") instance=ExtResource("8_p75ms")]
+character_info_ui = NodePath("../character_data_ui")
 
 [node name="fps_label" type="Label" parent="."]
 layout_mode = 0

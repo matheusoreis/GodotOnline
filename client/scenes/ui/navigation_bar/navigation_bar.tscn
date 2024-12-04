@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://llvnrc5065et"]
+
+[ext_resource type="Script" path="res://scenes/ui/navigation_bar/navigation_bar.gd" id="1_o5ysq"]
+[ext_resource type="Texture2D" uid="uid://dqxawlj2mwe1n" path="res://assets/graphics/icons/demo/character/character_normal.png" id="2_4hgig"]
+[ext_resource type="Texture2D" uid="uid://r2nilqr8udgm" path="res://assets/graphics/icons/demo/character/character_pressed.png" id="3_7yjp6"]
+[ext_resource type="Texture2D" uid="uid://ck1r7odbicu12" path="res://assets/graphics/icons/demo/character/character_hover.png" id="4_g4tmc"]
+[ext_resource type="Texture2D" uid="uid://0j5omtty2rco" path="res://assets/graphics/icons/demo/character/character_disabled.png" id="5_g1nc3"]
+[ext_resource type="Texture2D" uid="uid://5klpvqtldm38" path="res://assets/graphics/icons/demo/exit/exit_normal.png" id="6_vipi2"]
+[ext_resource type="Texture2D" uid="uid://dm02b13n64iyi" path="res://assets/graphics/icons/demo/exit/exit_pressed.png" id="7_u11i5"]
+[ext_resource type="Texture2D" uid="uid://ygwdnvb6dwct" path="res://assets/graphics/icons/demo/exit/exit_hover.png" id="8_gker2"]
+[ext_resource type="Texture2D" uid="uid://t24ra00g8at6" path="res://assets/graphics/icons/demo/exit/exit_disabled.png" id="9_okh84"]
+
+[node name="navigation_bar_ui" type="PanelContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -56.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_o5ysq")
+
+[node name="content_hbox" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="character_button" type="TextureButton" parent="content_hbox"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_4hgig")
+texture_pressed = ExtResource("3_7yjp6")
+texture_hover = ExtResource("4_g4tmc")
+texture_disabled = ExtResource("5_g1nc3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="exit_button" type="TextureButton" parent="content_hbox"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("6_vipi2")
+texture_pressed = ExtResource("7_u11i5")
+texture_hover = ExtResource("8_gker2")
+texture_disabled = ExtResource("9_okh84")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="content_hbox/character_button" to="." method="_on_character_button_pressed"]
+[connection signal="pressed" from="content_hbox/exit_button" to="." method="_on_exit_button_pressed"]

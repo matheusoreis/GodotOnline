@@ -18,6 +18,7 @@ var new_character_to := NewCharacterToIncoming.new()
 var world_characters_to := WorldCharactersToIncoming.new()
 var disconnect_character := DisconnectCharacterIncoming.new()
 var chat := ChatIncoming.new()
+var character_data := CharacterDataIncoming.new()
 
 
 func _init() -> void:
@@ -79,6 +80,10 @@ func _init() -> void:
 
 	request_handlers[ServerHeaders.Headers.CHAT_MESSAGE] = Callable(
 		chat, "handle"
+	)
+	
+	request_handlers[ServerHeaders.Headers.CHARACTER_DATA] = Callable(
+		character_data, "handle"
 	)
 
 
