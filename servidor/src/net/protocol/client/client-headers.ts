@@ -13,4 +13,5 @@ export enum ClientHeaders {
 	TeleportCharacter = 11,
 	ChatMessage = 12,
 	EmoteMessage = 13,
+	CharacterData = 14,
 }

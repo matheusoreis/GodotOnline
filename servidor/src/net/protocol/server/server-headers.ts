@@ -19,6 +19,7 @@ export const ServerHeaders = {
 	TeleportCharacter: 17,
 	ChatMessage: 18,
 	EmoteMessage: 19,
+	CharacterData: 20,
 } as const;
 
 export type ServerHeader = (typeof ServerHeaders)[keyof typeof ServerHeaders];

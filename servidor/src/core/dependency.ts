@@ -5,23 +5,23 @@ import { Manager } from "../net/manager";
 import { ClientMessage } from "../net/protocol/client/client-message";
 import { Setup } from "../setup";
 import { Logger } from "../utils/logger";
+import { Token } from "../utils/token";
 import { AccessAccountIncoming } from "./game/access-account/access-account.incoming";
+import { CharacterDataIncoming } from "./game/character-data/chracter-data.incoming";
+import { CharacterListIncoming } from "./game/character-list/character-list.incoming";
+import { ChatIncoming } from "./game/chat/chat.incoming";
 import { CreateAccountIncoming } from "./game/create-account/create-account.incoming";
+import { CreateCharacterIncoming } from "./game/create-character/create-character.incoming";
+import { DeleteCharacterIncoming } from "./game/delete-character/delete-character.incoming";
+import { EmoteIncoming } from "./game/emote/emote.incoming";
+import { MoveCharacterIncoming } from "./game/move-character/move-character.incoming";
 import { PingIncoming } from "./game/ping/ping.incoming";
-import { WorldOutgoing } from "./game/world/world.outgoing";
+import { SelectCharacterIncoming } from "./game/select-character/select-character.incoming";
+import { Jwt } from "./server/jwt";
+import { LoadMemory } from "./server/load-memory";
 import { Memory } from "./server/memory";
 import { Password } from "./server/password";
 import { serviceLocator } from "./server/service-locator";
-import { CharacterListIncoming } from "./game/character-list/character-list.incoming";
-import { CreateCharacterIncoming } from "./game/create-character/create-character.incoming";
-import { DeleteCharacterIncoming } from "./game/delete-character/delete-character.incoming";
-import { SelectCharacterIncoming } from "./game/select-character/select-character.incoming";
-import { MoveCharacterIncoming } from "./game/move-character/move-character.incoming";
-import { ChatIncoming } from "./game/chat/chat.incoming";
-import { EmoteIncoming } from "./game/emote/emote.incoming";
-import { Jwt } from "./server/jwt";
-import { Token } from "../utils/token";
-import { LoadMemory } from "./server/load-memory";
 
 export class Dependency {
 	public setup() {
@@ -124,6 +124,11 @@ export class Dependency {
 		serviceLocator.registerFactory<EmoteIncoming>(
 			EmoteIncoming,
 			() => new EmoteIncoming(),
+		);
+
+		serviceLocator.registerFactory<CharacterDataIncoming>(
+			CharacterDataIncoming,
+			() => new CharacterDataIncoming(),
 		);
 	}
 }

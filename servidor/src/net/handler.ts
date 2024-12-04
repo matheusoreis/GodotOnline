@@ -1,4 +1,5 @@
 import { AccessAccountIncoming } from "../core/game/access-account/access-account.incoming";
+import { CharacterDataIncoming } from "../core/game/character-data/chracter-data.incoming";
 import { CharacterListIncoming } from "../core/game/character-list/character-list.incoming";
 import { ChatIncoming } from "../core/game/chat/chat.incoming";
 import { CreateAccountIncoming } from "../core/game/create-account/create-account.incoming";
@@ -101,5 +102,10 @@ export class Handler {
 
 		const emote = serviceLocator.get<EmoteIncoming>(EmoteIncoming);
 		this.requestHandlers[ClientHeaders.EmoteMessage] = emote;
+
+		const characterData = serviceLocator.get<CharacterDataIncoming>(
+			CharacterDataIncoming,
+		);
+		this.requestHandlers[ClientHeaders.CharacterData] = characterData;
 	}
 }
