@@ -6,11 +6,10 @@ extends PanelContainer
 
 
 func _on_character_button_pressed() -> void:
-	CharacterDataOutgoing.new().send()
-	
 	if character_info_ui.visible == true:
 		character_info_ui.hide()
-
+	else:
+		CharacterDataOutgoing.new().send()
 
 func _on_exit_button_pressed() -> void:
 	Multiplayer.websocket.disconnect_from_host()
