@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmq7ho21h2dc7"]
+[gd_scene load_steps=14 format=3 uid="uid://dmq7ho21h2dc7"]
 
 [ext_resource type="Script" path="res://scenes/entities/character/character_base.gd" id="1_iv77c"]
 [ext_resource type="Texture2D" uid="uid://cnsosgognq3hm" path="res://assets/graphics/entities/characters/1.png" id="2_dne8s"]
+[ext_resource type="Resource" uid="uid://dsvuic22xha28" path="res://scenes/ui/inventory/resources/inventory.tres" id="2_n3hf8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibi85"]
 
@@ -268,6 +269,7 @@ _name = NodePath("name_label")
 _camera = NodePath("main_camera")
 _texture = NodePath("body_sprite")
 _animation = NodePath("body_animation")
+_inventory = ExtResource("2_n3hf8")
 
 [node name="name_label" type="Label" parent="."]
 z_index = 1

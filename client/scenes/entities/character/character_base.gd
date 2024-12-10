@@ -10,6 +10,8 @@ class_name CharacterBase extends CharacterBody2D
 @export_category('Definições')
 @export var _move_speed: float = 100
 
+@export_category('Referências')
+@export var _inventory: Inventory
 
 enum CHAR_DIRECTION {
 	LEFT,

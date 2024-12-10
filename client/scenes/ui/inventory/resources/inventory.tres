@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://dsvuic22xha28"]
+
+[ext_resource type="Script" path="res://scenes/ui/inventory/resources/scripts/inventory_item.gd" id="1_pxk6d"]
+[ext_resource type="Resource" uid="uid://c10vnlit2cn1k" path="res://scenes/ui/inventory/resources/espada.tres" id="2_b32d8"]
+[ext_resource type="Script" path="res://scenes/ui/inventory/resources/scripts/inventory.gd" id="3_yowxn"]
+
+[resource]
+script = ExtResource("3_yowxn")
+items = Array[ExtResource("1_pxk6d")]([ExtResource("2_b32d8"), null, null, ExtResource("2_b32d8"), null, null, ExtResource("2_b32d8"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/ui/character_data/character_data.gd" id="1_3e3jc"]
 [ext_resource type="Script" path="res://scenes/ui/top_bar.gd" id="2_ypsfc"]
 
-[node name="navigation_bar_ui" type="PanelContainer" node_paths=PackedStringArray("character_name", "character_gender")]
+[node name="character_data_ui" type="PanelContainer" node_paths=PackedStringArray("character_name", "character_gender")]
 custom_minimum_size = Vector2(250, 100)
 anchors_preset = 6
 anchor_left = 1.0

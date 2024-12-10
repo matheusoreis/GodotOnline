@@ -1,0 +1,152 @@
+[gd_scene load_steps=4 format=3 uid="uid://byu3fnpncum6i"]
+
+[ext_resource type="Script" path="res://scenes/ui/inventory/inventory.gd" id="1_hiwdr"]
+[ext_resource type="Script" path="res://scenes/ui/top_bar.gd" id="2_0fdsr"]
+[ext_resource type="PackedScene" uid="uid://qolse68m2mon" path="res://scenes/ui/inventory/slot/inventory_slot.tscn" id="3_u0jak"]
+
+[node name="inventory_ui" type="PanelContainer"]
+custom_minimum_size = Vector2(250, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -132.0
+offset_right = -64.0
+offset_bottom = 164.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_hiwdr")
+
+[node name="design_vbox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="top_bar" type="Panel" parent="design_vbox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+script = ExtResource("2_0fdsr")
+target_node = NodePath("../..")
+
+[node name="content_margin" type="MarginContainer" parent="design_vbox/top_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="content_hbox" type="HBoxContainer" parent="design_vbox/top_bar/content_margin"]
+layout_mode = 2
+
+[node name="title_label" type="Label" parent="design_vbox/top_bar/content_margin/content_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Inventário"
+
+[node name="close_button" type="Button" parent="design_vbox/top_bar/content_margin/content_hbox"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "X"
+
+[node name="content_control" type="Control" parent="design_vbox"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+
+[node name="inventory_grid" type="GridContainer" parent="design_vbox/content_control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -53.0
+offset_right = 53.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="slot1" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot2" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot3" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot4" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot5" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot6" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot7" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot8" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot9" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot10" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot11" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot12" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot13" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot14" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot15" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot16" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot17" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot18" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot19" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot20" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot21" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot22" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot23" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot24" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[node name="slot25" parent="design_vbox/content_control/inventory_grid" instance=ExtResource("3_u0jak")]
+layout_mode = 2
+
+[connection signal="pressed" from="design_vbox/top_bar/content_margin/content_hbox/close_button" to="." method="_on_close_button_pressed"]

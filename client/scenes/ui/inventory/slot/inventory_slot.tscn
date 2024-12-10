@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://qolse68m2mon"]
+
+[ext_resource type="Script" path="res://scenes/ui/inventory/slot/inventory_slot.gd" id="1_8jw31"]
+[ext_resource type="Texture2D" uid="uid://cwit6t8shfpws" path="res://assets/graphics/icons/demo/sword/sword.png" id="2_pgcy5"]
+
+[node name="slot" type="Panel"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8jw31")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(20, 20)
+texture = ExtResource("2_pgcy5")

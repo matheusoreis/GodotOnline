@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://c10vnlit2cn1k"]
+
+[ext_resource type="Script" path="res://scenes/ui/inventory/resources/scripts/inventory_item.gd" id="1_cc1nq"]
+[ext_resource type="Texture2D" uid="uid://cwit6t8shfpws" path="res://assets/graphics/icons/demo/sword/sword.png" id="2_w6ddd"]
+
+[resource]
+script = ExtResource("1_cc1nq")
+name = "Espada"
+texture = ExtResource("2_w6ddd")

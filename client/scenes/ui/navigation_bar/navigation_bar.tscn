@@ -1,13 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://llvnrc5065et"]
+[gd_scene load_steps=14 format=3 uid="uid://llvnrc5065et"]
 
 [ext_resource type="Script" path="res://scenes/ui/navigation_bar/navigation_bar.gd" id="1_o5ysq"]
 [ext_resource type="Texture2D" uid="uid://dqxawlj2mwe1n" path="res://assets/graphics/icons/demo/character/character_normal.png" id="2_4hgig"]
 [ext_resource type="Texture2D" uid="uid://r2nilqr8udgm" path="res://assets/graphics/icons/demo/character/character_pressed.png" id="3_7yjp6"]
 [ext_resource type="Texture2D" uid="uid://ck1r7odbicu12" path="res://assets/graphics/icons/demo/character/character_hover.png" id="4_g4tmc"]
 [ext_resource type="Texture2D" uid="uid://0j5omtty2rco" path="res://assets/graphics/icons/demo/character/character_disabled.png" id="5_g1nc3"]
+[ext_resource type="Texture2D" uid="uid://c6p8lt3mid5uc" path="res://assets/graphics/icons/demo/inventory/inventory_normal.png" id="6_nb0b5"]
 [ext_resource type="Texture2D" uid="uid://5klpvqtldm38" path="res://assets/graphics/icons/demo/exit/exit_normal.png" id="6_vipi2"]
+[ext_resource type="Texture2D" uid="uid://n5el8sk5wjvy" path="res://assets/graphics/icons/demo/inventory/inventory_pressed.png" id="7_1wt7t"]
 [ext_resource type="Texture2D" uid="uid://dm02b13n64iyi" path="res://assets/graphics/icons/demo/exit/exit_pressed.png" id="7_u11i5"]
+[ext_resource type="Texture2D" uid="uid://0ncd6habgvrk" path="res://assets/graphics/icons/demo/inventory/inventory_hover.png" id="8_1mon6"]
 [ext_resource type="Texture2D" uid="uid://ygwdnvb6dwct" path="res://assets/graphics/icons/demo/exit/exit_hover.png" id="8_gker2"]
+[ext_resource type="Texture2D" uid="uid://cabp41vbjsh8p" path="res://assets/graphics/icons/demo/inventory/inventory_disabled.png" id="9_2kmkm"]
 [ext_resource type="Texture2D" uid="uid://t24ra00g8at6" path="res://assets/graphics/icons/demo/exit/exit_disabled.png" id="9_okh84"]
 
 [node name="navigation_bar_ui" type="PanelContainer"]
@@ -38,6 +42,16 @@ texture_disabled = ExtResource("5_g1nc3")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="inventory_button" type="TextureButton" parent="content_hbox"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("6_nb0b5")
+texture_pressed = ExtResource("7_1wt7t")
+texture_hover = ExtResource("8_1mon6")
+texture_disabled = ExtResource("9_2kmkm")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="exit_button" type="TextureButton" parent="content_hbox"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
@@ -49,4 +63,5 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [connection signal="pressed" from="content_hbox/character_button" to="." method="_on_character_button_pressed"]
+[connection signal="pressed" from="content_hbox/inventory_button" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="content_hbox/exit_button" to="." method="_on_exit_button_pressed"]
